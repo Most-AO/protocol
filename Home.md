@@ -157,15 +157,15 @@ Send wrapt message from user (user's wallet) to handle. Then the handle will rel
 The WraptMessage is in json format
 ```json
 {
-  Target = "{Target Process Id}",
-  Data = "{Data}",
-  Tags = {
-    Action = "{Action}",
+  Target: "{Target Process Id}",
+  Data: "{Data}",
+  Tags: {
+    Action: "{Action}",
   },
 }
 ```
 
-```ts
+```lua
 send({
   Target = "{Session Process ID}",
   Data = "{WraptMessage}",
