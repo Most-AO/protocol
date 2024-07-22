@@ -88,14 +88,14 @@ dryrun({
 });
 ```
 
-### EstablishSession(handleA, handleB)
+### EstablishSession(otherHandle)
 
-This function can only be called by either one of handle owner. It will spawn a session process between the handleA and the handleB. Then notify the two handles to update the chatlist.
+This function can only be called by either one of handle. It will spawn a session process between the handleA and the handleB. Then notify the two handles to update the chatlist.
 
 ```lua
 send({
   Target = "{Registry Process ID}",
-  Data = "{handleA, handleB}",
+  Data = "{otherHandle}",
   Tags = {
     Action = "EstablishSession"
   }
@@ -150,16 +150,27 @@ send({
 });
 ```
 
-### RelayMessage(content)
+### RelayMessage(WraptMessage)
 
-Send encrypted message from user (user's wallet) to handle. (Then the handle will send the content to session process)
+Send wrapt message from user (user's wallet) to handle. Then the handle will relay this message to target process with its inner data.
+
+The WraptMessage is in json format
+```json
+{
+  Target = "{Target Process Id}",
+  Data = "{Data}",
+  Tags = {
+    Action = "{Action}",
+  },
+}
+```
 
 ```ts
 send({
   Target = "{Session Process ID}",
-  Data = "{content}",
+  Data = "{WraptMessage}",
   Tags = {
-    Action = "SendMessage",
+    Action = "RelayMessage",
   },
 });
 ```
