@@ -152,7 +152,7 @@ send({
 
 ### RelayMessage(WraptMessage)
 
-Send wrapt message from user (user's wallet) to handle. Then the handle will relay this message to target process with its inner data.
+Send wrapt message from user (user's wallet) to handle. Then the handle will relay this message to target process with its inner data. Only the owner of handle can call it.
 
 The WraptMessage is in json format
 ```
