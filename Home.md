@@ -155,7 +155,7 @@ send({
 Send wrapt message from user (user's wallet) to handle. Then the handle will relay this message to target process with its inner data.
 
 The WraptMessage is in json format
-```json
+```
 {
   Target: "{Target Process Id}",
   Data: "{Data}",
