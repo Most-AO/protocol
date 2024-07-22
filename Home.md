@@ -150,11 +150,11 @@ send({
 });
 ```
 
-### RelayMessage(WraptMessage)
+### RelayMessage(WrappedMessage)
 
-Send wrapt message from user (user's wallet) to handle. Then the handle will relay this message to target process with its inner data. Only the owner of handle can call it.
+Send wrapped message from user (user's wallet) to handle. Then the handle will relay this message to target process with its inner data. Only the owner of handle can call it.
 
-The WraptMessage is in json format
+The WrappedMessage is in json format
 ```
 {
   Target: "{Target Process Id}",
@@ -168,7 +168,7 @@ The WraptMessage is in json format
 ```lua
 send({
   Target = "{Session Process ID}",
-  Data = "{WraptMessage}",
+  Data = "{WrappedMessage}",
   Tags = {
     Action = "RelayMessage",
   },
