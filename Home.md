@@ -9,16 +9,16 @@ AO, the computer, is a promising new infrastructure that enables Web3 applicatio
 ## Conceptes
 
 - Handle: A handle is the unique identifier, and is also a process that can send and receive messages.
-- Session: A session is process establish between two handles. A session is responsible for keeping the message history and key exchange
+- Session: A session is process establish between two handles. A session is responsible for keeping the message history and key exchange. 
 - Registry: Register all handles and spawns sessions between handles.
 
 ## Handle Registry
 
-Every process in MOSTAO has a (social)handle as its unique identifier. The handle records are managed by a handle registry process. The activities of the registry process is as follows:
+Every process in MostAO has a (social) handle as its unique identifier. The handle records are managed by a handle registry process. The activities of the registry process is as follows:
 
 ### QueryHandle(name)
 
-Returns the process id which is currently the owner and pid of this handle.
+Returns the process id of this handle.
 
 ```ts
 dryrun({
@@ -58,22 +58,6 @@ send({
 });
 ```
 
-### Renounce(Name)
-
-Renounce a handle, set it free. Can only be called by current owner
-
-```ts
-send({
-  Target = "{Registry Process ID}",
-  Data = {
-    name = "{name}",
-  },
-  Tags = {
-    Action = "Renounce",
-  },
-});
-```
-
 ### QuerySession(handleA, handleB)
 
 Return session id if there exists a session between handleA and handleB (order does not matter), otherwise return nil.
@@ -108,7 +92,8 @@ A handle process acts as an agent for a user. Handle has those functions:
 
 1. keep a profile along with env variables
 2. keep chat list
-3. send and receive messages
+3. relay messages of its owner
+4. send and receive messages
 
 The activities of the handle process is as follows:
 
@@ -238,7 +223,7 @@ Update session key, can be called by either handle. All handles should be kept i
 ```lua
 send({
   Target = "{Session Process ID}",
-  Data = "{SK_EA, pubkey_A},{SK_EB, pubkey_B}",
+  Data = "{pubkey_A, SK_EA},{pubkey_B, SK_EB}",
   Tags = {
     Action = "RotateSessionKey"
   }
