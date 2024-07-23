@@ -112,6 +112,8 @@ Update the profile of this handle, the structure of profile data is as follows:
 }
 ```
 
+The pubkey field is the wallet pubkey. But in the future, MostAO will support multiple pubkey scheme, allowing different communication model.
+
 ```ts
 send({
   Target = "{Handle Process ID}",
