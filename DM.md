@@ -1,5 +1,6 @@
 # DM Session
 
+## Concept
 A DM session is a process establish between to two processes and it can only be called by those two processes. A DM session is responsible for session key management, keeping chat history. This is a workflow of encrypted DM between handleA (owned by userA) and handleB (owned by userB):
 
 1. userA generates a session key (SK) in its local environment, outside of AO
@@ -11,7 +12,7 @@ A DM session is a process establish between to two processes and it can only be 
 7. session process sends a notification to handleB
 8. when handleB is online, it checks the SK_EB and MSG_E, using userB's private key, it can decrypt SK then the MSG
 
-The activities of the session process is as follows:
+## Activities
 
 ### RotateSessionKey({SK_EA, pubkey_A},{SK_EB, pubkey_B})
 
