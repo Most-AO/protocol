@@ -1,6 +1,6 @@
-## DM Session
+# DM Session
 
-A session is a process establish between to processes and it can only be called by those two processes. A session is responsible for session key management, keeping chat history. This is a workflow of encrypted DM between handleA (owned by userA) and handleB (owned by userB):
+A DM session is a process establish between to two processes and it can only be called by those two processes. A DM session is responsible for session key management, keeping chat history. This is a workflow of encrypted DM between handleA (owned by userA) and handleB (owned by userB):
 
 1. userA generates a session key (SK) in its local environment, outside of AO
 2. userA encrypts the SK by its own pubkey and gets SK_EA in its local environment
