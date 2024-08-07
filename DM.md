@@ -16,7 +16,7 @@ A DM session is a process establish between to two processes and it can only be 
 
 ### RotateSessionKey({SK_EA, pubkey_A},{SK_EB, pubkey_B})
 
-Update session key, can be called by either handle. All handles should be kept in an array. The lens of array can be seen as generation number
+Update session key, can be called by either handle. All batches of keys should be kept in an array. The lens of array can be seen as generation number
 
 ```lua
 send({
@@ -32,7 +32,7 @@ send({
 
 get current session key with key generation
 
-```ts
+```lua
 dryrun({
   Target = "{Session Process ID}",
   Tags = {
@@ -45,7 +45,7 @@ dryrun({
 
 get key by generation number
 
-```ts
+```lua
 dryrun({
   Target = "{Session Process ID}",
   Data = "generation",
@@ -59,7 +59,7 @@ dryrun({
 
 Send encrypted message to session process. The session will keep the message's from, pubkey, generation, timestamp with the content.
 
-```ts
+```lua
 send({
   Target = "{Session Process ID}",
   Data = "{content}",
@@ -73,7 +73,7 @@ send({
 
 Query encrypted messages, with from as start time, until as end time, limit as numbers you want to get and order as asc desc (in time)
 
-```ts
+```lua
 dryrun({
   Target = "{Session Process ID}",
   Data = "{
@@ -84,6 +84,5 @@ dryrun({
   }",
   Tags = {
     Action = "QueryMessage"
-  }
-})
+  })
 ```

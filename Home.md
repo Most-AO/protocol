@@ -20,7 +20,7 @@ Every process in MostAO has a (social) handle as its unique identifier. The hand
 
 Returns the process id of this handle.
 
-```ts
+```lua
 dryrun({
   Target = "{Registry Process ID}",
   Data = "{name}",
@@ -34,7 +34,7 @@ dryrun({
 
 Return the handles under this owner (wallet address)
 
-```ts
+```lua
 dryrun({
   Target = "{Registry Process ID}",
   Data = "{owner}",
@@ -48,7 +48,7 @@ dryrun({
 
 Register a handle name, spawn a handle process with this name in it
 
-```ts
+```lua
 send({
   Target = "{Handle Process ID}",
   Data = "{name}",
@@ -62,7 +62,7 @@ send({
 
 Return session id if there exists a session between handleA and handleB (order does not matter), otherwise return nil.
 
-```ts
+```lua
 dryrun({
   Target = "{Registry Process ID}",
   Data = "{handleA, handleB}",
@@ -114,7 +114,7 @@ Update the profile of this handle, the structure of profile data is as follows:
 
 The pubkey field is the wallet pubkey. But in the future, MostAO will support multiple pubkey scheme, allowing different communication model.
 
-```ts
+```lua
 send({
   Target = "{Handle Process ID}",
   Data = "{profile}",
@@ -128,7 +128,7 @@ send({
 
 Retrieve the profile of this handle.
 
-```ts
+```lua
 send({
   Target = "{Handle Process ID}",
   Tags = {
@@ -180,7 +180,7 @@ send({
 
 This function is called by the handle owner. It retrieves the chat list of this handle, including all related session information.
 
-```ts
+```lua
 send({
   Target = "{Handle Process ID}",
   Tags = {
