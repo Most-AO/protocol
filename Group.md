@@ -142,6 +142,20 @@ send({
 
 the change in members should be logged into timeline
 
+### LeaveGroup()
+
+A member(except owner) can leave group anytime. The members list will change on leaving but the key rotation should wait until the owner or a mod is online to execute.
+
+```lua
+send({
+    Target = "{Session Process ID}",
+    Data = "{why you leave}"
+    Tags = {
+        Action = "LeaveGroup",
+    },
+});
+```
+
 ### RotateSessionKey(sessionKeys)
 
 ```lua
