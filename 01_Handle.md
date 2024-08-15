@@ -1,16 +1,5 @@
-# MostAO
-
-Messages and other stuff transmitted by AO
-
-## Background
-
-AO, the computer, is a promising new infrastructure that enables Web3 applications to deliver a Web2 experience. To enhance the AO ecosystem, a protocol is required to establish a standardized messaging system for processes to communicate.
-
-## Conceptes
-
-- Handle: A handle is the unique identifier, and is also a process that can send and receive messages.
-- Session: A session is process establish between two handles. A session is responsible for keeping the message history and key exchange. 
-- Registry: Register all handles and spawns sessions between handles.
+# Handle
+A handle is the unique identifier, and is also a process that can send and receive messages. You can think it as your PDS (personal data server)
 
 ## Handle Registry
 
@@ -56,34 +45,6 @@ send({
     Action = "Register",
   },
 });
-```
-
-### QuerySession(handleA, handleB)
-
-Return session id if there exists a session between handleA and handleB (order does not matter), otherwise return nil.
-
-```lua
-dryrun({
-  Target = "{Registry Process ID}",
-  Data = "{handleA, handleB}",
-  Tags = {
-    Action = "QuerySession",
-  },
-});
-```
-
-### EstablishSession(otherHandle)
-
-This function can only be called by either one of handle. It will spawn a session process between the handleA and the handleB. Then notify the two handles to update the chatlist.
-
-```lua
-send({
-  Target = "{Registry Process ID}",
-  Data = "{otherHandle}",
-  Tags = {
-    Action = "EstablishSession"
-  }
-})
 ```
 
 ## Handle
